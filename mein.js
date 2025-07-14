@@ -65,7 +65,7 @@ document.getElementById("mode-p2").addEventListener("click", () => {
     updateBadgeHighlight();
 });
 
-// Fungsi transisi teks label
+// Transisi teks label
 function fadeChange(element, newText) {
     element.style.opacity = "0";
     setTimeout(() => {
@@ -103,7 +103,7 @@ function play(choice) {
     }
 }
 
-// VS AI logic
+// VS AI
 function game(userChoice) {
     lastUserMoves.push(userChoice);
     if (lastUserMoves.length > 3) lastUserMoves.shift();
@@ -129,7 +129,7 @@ function game(userChoice) {
     }
 }
 
-// VS Player 2 logic
+// VS Player 2
 function resolveP2Game(p1, p2) {
     const smallUserWord = "(P1)".fontsize(3).sub();
     const smallAIWord = "(P2)".fontsize(3).sub();
@@ -152,7 +152,7 @@ function resolveP2Game(p1, p2) {
 
 function getAIChoice() {
   if (aiMode === "medium") {
-    // medium: counter pilihan terbanyak
+    // medium
     const maxChoice = Object.entries(userChoiceHistory).reduce((a, b) =>
       a[1] >= b[1] ? a : b
     )[0];
@@ -161,9 +161,9 @@ function getAIChoice() {
   }
 
   if (aiMode === "hard") {
-    // Hard: prediksi dari 3 langkah terakhir
+    // Hard
     if (lastUserMoves.length < 3) {
-      return randomMove(); // belum cukup data
+      return randomMove();
     }
 
     const freq = { r: 0, p: 0, s: 0 };
@@ -182,9 +182,9 @@ function getAIChoice() {
 
 function counterMove(move) {
   switch (move) {
-    case "r": return "p"; // Paper beats Rock
-    case "p": return "s"; // Scissors beats Paper
-    case "s": return "r"; // Rock beats Scissors
+    case "r": return "p";
+    case "p": return "s";
+    case "s": return "r";
   }
 }
 
@@ -276,15 +276,14 @@ function updateFontSize() {
 }
 
 function updateBadgeHighlight() {
-    // Hapus highlight dulu
     userLabel.classList.remove("badge-glow");
     aiLabel.classList.remove("badge-glow");
 
     if (gameMode === "p2") {
         if (currentPlayer === "user") {
-            userLabel.classList.add("badge-glow"); // Player 1 giliran
+            userLabel.classList.add("badge-glow");
         } else {
-            aiLabel.classList.add("badge-glow");   // Player 2 giliran
+            aiLabel.classList.add("badge-glow");
         }
     }
 }
@@ -323,7 +322,6 @@ function loadSavedScore() {
     }
 }
 
-// Panggil setelah semua inisialisasi
 main();
 loadSavedScore();
 
