@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rock, Paper, Scissors!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Rock Paper Scissors</h1>
+  </header>
+
+  <!-- Tombol mode -->
+  <div class="mode-select">
+    <button id="mode-ai" class="mode-button">VS AI</button>
+    <div class="ai-mode-select">
+        <label>
+            <input type="radio" name="ai-mode" value="normal" checked />
+            Normal AI
+        </label>
+        <label>
+            <input type="radio" name="ai-mode" value="medium" />
+            Medium AI
+        </label>
+        <label>
+            <input type="radio" name="ai-mode" value="hard" />
+            Hard AI
+        </label>
+    </div>
+    <button id="mode-p2" class="mode-button">VS Player 2</button>
+    <button id="fullscreen-btn" class="mode-button">Fullscreen</button>
+  </div>
+
+  <!-- Indikator giliran -->
+  <div id="turn-indicator">Mode: VS AI</div>
+
+    <div class="reset-container">
+        <button id="reset-score" class="mode-button">Reset Score</button>
+    </div>
+
+  <div id="round-counter">Round: 0</div>
+
+  <!-- Scoreboard -->
+  <div class="score-board">
+    <div id="user-label" class="badge">user</div>
+    <div id="AI-label" class="badge">AI</div>
+    <div class="scores-wrapper">
+      <span id="user-score">0</span> : <span id="AI-score">0</span>
+    </div>
+  </div>
+
+  <!-- Hasil -->
+  <div class="result">
+    <p>Choose your decision!</p>
+  </div>
+
+  <!-- Pilihan -->
+  <div class="choices">
+    <div class="choice" id="r">
+      <img src="rock.jpg" alt="Rock" />
+    </div>
+    <div class="choice" id="s">
+      <img src="scissors.jpg" alt="Scissors" />
+    </div>
+    <div class="choice" id="p">
+      <img src="paper.jpg" alt="Paper" />
+    </div>
+  </div>
+
+  <p id="action-message">Make your move!</p>
+
+  <footer>
+    <h1>Good Luck Have Fun! :D </h1>
+  </footer>
+
+  <script src="mein.js"></script>
+</body>
+</html>

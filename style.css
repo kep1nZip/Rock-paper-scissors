@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wdth,wght@112.5,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+}
+
+@keyframes gridScrollkanan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100vh;
+  }
+}
+
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 10px white;
+    }
+    50% {
+        text-shadow: 0 0 30px white;
+    }
+    100% {
+        text-shadow: 0 0 10px white;
+    }
+}
+
+@keyframes pulseGlowR {
+    0% {
+        text-shadow: 0 0 10px rgb(255, 0, 0);
+    }
+    50% {
+        text-shadow: 0 0 30px rgb(255, 0, 0);
+    }
+    100% {
+        text-shadow: 0 0 10px rgb(255, 0, 0);
+    }
+}
+
+@keyframes pulseGlowG {
+    0% {
+        text-shadow: 0 0 10px rgb(26, 255, 0);
+    }
+    50% {
+        text-shadow: 0 0 30px rgb(30, 255, 0);
+    }
+    100% {
+        text-shadow: 0 0 10px rgb(0, 255, 26);
+    }
+}
+
+@keyframes pulseGlowB {
+    0% {
+        text-shadow: 0 0 10px rgb(0, 38, 255);
+    }
+    50% {
+        text-shadow: 0 0 30px rgb(47, 0, 255);
+    }
+    100% {
+        text-shadow: 0 0 10px rgb(0, 38, 255);
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+  background-color: #0f0f0f;
+  background-image:
+    linear-gradient(#333 0.1vw, transparent 0.1vw),
+    linear-gradient(90deg, #333 0.1vw, transparent 0.1vw);
+  background-size: 2vw 2vw;
+  background-repeat: repeat;
+  animation: gridScrollkanan 20s linear infinite;
+}
+
+header{
+    background: rgb(39, 39, 39);
+    padding: 20px;
+}
+
+header > h1 {
+    color:rgb(255, 255, 255);
+    text-align: center;
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+footer > h1{
+    padding: 200px;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+.score-board{
+    background-color: black;
+    margin: 20px auto;
+    border: 3px solid white;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 40px white;
+    width: 2000px;
+    height: 700px;
+    color:white;
+    font-size: 600px;
+    padding: 15px 20px;
+    font-family: Asap, sans-serif;
+    position: relative;
+}
+
+.badge {
+    background: rgb(196, 196, 196);
+    box-shadow: 0 0 25px rgb(207, 207, 207);
+    color: slategray;
+    font-size: 100px;
+    padding: 2px 10px;
+    font-family: "Gloria Hallelujah", cursive;
+    font-weight: 400;
+    font-style: normal;
+    transition: transform 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.2s ease;
+}
+
+#user-label{
+    position: absolute;
+    top: 245px;
+    left: 0;
+    transform: translateX(-150%);
+}
+
+#AI-label{
+    position: absolute;
+    top: 245px;
+    right: 0;
+    transform: translateX(150%);
+}
+
+.badge-glow {
+    box-shadow: 0 0 3000px white, 0 0 10000px white;
+    transition: box-shadow 0.3s ease;
+}
+
+.result{
+    font-size: 120px;
+    color:aliceblue;
+}
+
+.result > p{
+    text-align: center;
+    font-family: Asap, sans-serif;
+}
+
+.choices{
+    text-align: center;
+
+}
+
+.choice{
+    margin-top: 3%;
+    padding: 25px;
+    display: inline-block;
+    transition: all 0.5s ease;
+}
+
+.choice img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.choice:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+#action-message{
+    text-align: center;
+    color: aliceblue;
+    font-family: Asap, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    margin-top: 3%;
+}
+
+.scores-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    height: 100%;
+}
+
+#user-score, #AI-score {
+    display: inline-block;
+    transition: font-size 0.3s ease;
+    min-width: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: pulseGlow 1s infinite;
+    text-align: center;
+}
+
+.result-win {
+    color: #00ff00;
+    text-shadow: 0 0 20px #00ff00;
+    transition: all 0.3s ease;
+    animation: pulseGlowG 2s infinite;
+}
+
+.result-lose {
+    color: #ff5555;
+    text-shadow: 0 0 20px #ff5555;
+    transition: all 0.3s ease;
+    animation: pulseGlowR 0.5s infinite;
+}
+
+.result-draw {
+    color: #00ccff;
+    text-shadow: 0 0 20px #00ccff;
+    transition: all 0.3s ease;
+    animation: pulseGlowB 1s infinite;
+}
+
+.red-glow{
+    border: 4px solid red;
+    box-shadow: 0 0 10px tomato;
+}
+
+.green-glow{
+    border: 4px solid green;
+    box-shadow: 0 0 10px greenyellow;
+}
+
+.blue-glow{
+    border: 4px solid blue;
+    box-shadow: 0 0 10px cyan;
+}
+
+.mode-select {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.mode-button {
+    font-size: 40px;
+    padding: 20px 60px;
+    margin: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    color: slategrey;
+    font-family: Asap, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.mode-button:hover {
+    background-color: lightgray;
+    transform: scale(1.05);
+}
+
+#turn-indicator {
+    margin: 20px auto;
+    text-align: center;
+    color: white;
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 50px;
+    text-shadow: 0 0 10px white;
+    animation: pulseGlow 2s infinite;
+}
+
+/* === AI Mode Select === */
+.ai-mode-select {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 30px;
+  font-family: "Gloria Hallelujah", cursive;
+  color: white;
+}
+
+.ai-mode-select label {
+  margin: 0 30px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #222;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0ff;
+  transition: all 0.3s ease;
+}
+
+.ai-mode-select label:hover {
+  background-color: #333;
+  box-shadow: 0 0 20px #0ff;
+}
+
+.ai-mode-select input[type="radio"] {
+  transform: scale(1.5);
+  margin-right: 10px;
+  accent-color: #0ff;
+}
+
+#round-counter {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Gloria Hallelujah", cursive;
+  color: white;
+  margin-top: 20px;
+  text-shadow: 0 0 10px white;
+  animation: pulseGlow 2s infinite;
+}
+
+.reset-container {
+  text-align: center;
+  margin-top: 20px;
+}
